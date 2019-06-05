@@ -64,7 +64,12 @@ describe 'A game of rock paper scissors' do
         expect(game.play(:rock, :scissors)).to eq(expectation)
         expect(game.play(:scissors, :rock)).to eq(expectation)
       end
-      skip('is finished')
+      it 'has a finished game state' do
+        game = Game.new
+        game.start
+        game.play(:rock, :scissors)
+        expect(game.finished?).to eq(true)
+      end
     end
 
     context 'rock vs paper' do
@@ -75,7 +80,12 @@ describe 'A game of rock paper scissors' do
         expect(game.play(:paper, :rock)).to eq(expectation)
         expect(game.play(:rock, :paper)).to eq(expectation)
       end
-      skip('is finished')
+      it 'has a finished game state' do
+        game = Game.new
+        game.start
+        game.play(:paper, :rock)
+        expect(game.finished?).to eq(true)
+      end
     end
 
     context 'scissors vs paper' do
@@ -86,7 +96,12 @@ describe 'A game of rock paper scissors' do
         expect(game.play(:scissors, :paper)).to eq(expectation)
         expect(game.play(:paper, :scissors)).to eq(expectation)
       end
-      skip('is finished')
+      it 'has a finished game state' do
+        game = Game.new
+        game.start
+        game.play(:scissors, :paper)
+        expect(game.finished?).to eq(true)
+      end
     end
 
     context 'a tie game' do
@@ -99,7 +114,12 @@ describe 'A game of rock paper scissors' do
         expect(game.play(:scissors, :scissors)).to eq(expectation)
       end
 
-      skip('is not finished')
+      it 'has a finished game state' do
+        game = Game.new
+        game.start
+        game.play(:rock, :rock)
+        expect(game.finished?).to eq(false)
+      end
     end
 
   end
