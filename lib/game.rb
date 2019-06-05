@@ -3,6 +3,21 @@ class Game
   attr_accessor :finished
   attr_reader :started
 
+  OUTCOMES = {
+    rock: {
+      scissors: 'Rock beats scissors!',
+      paper: 'Paper beats rock!'
+    },
+    paper: {
+      rock: 'Paper beats rock!',
+      scissors: 'Scissors beats paper!'
+    },
+    scissors: {
+      rock: 'Rock beats scissors!',
+      paper: 'Paper beats scissors!'
+    }
+  }
+
   def start
     @started = true
     @finished = false
@@ -18,33 +33,35 @@ class Game
 
     @finished = true
 
-    if (left == :rock && right == :scissors)
-      "Rock beats scissors!"
-    elsif (left == :scissors && right == :rock)
-      "Rock beats scissors!"
+    OUTCOMES[left][right]
 
-    elsif (left == :rock && right == :paper)
-      'Paper beats rock!'
-    elsif (left == :paper && right == :rock)
-      'Paper beats rock!'
+    # if (left == :rock && right == :scissors)
+    #   "Rock beats scissors!"
+    # elsif (left == :scissors && right == :rock)
+    #   "Rock beats scissors!"
 
-    elsif (left == :scissors && right == :paper)
-      'Scissors beats paper!'
-    elsif (left == :paper && right == :scissors)
-      'Scissors beats paper!'
+    # elsif (left == :rock && right == :paper)
+    #   'Paper beats rock!'
+    # elsif (left == :paper && right == :rock)
+    #   'Paper beats rock!'
 
-    elsif (left == :rock && right == :rock)
-      @finished = false
-      'Tie game. Try again!'
-    elsif (left == :paper && right == :paper)
-      @finished = false
-      'Tie game. Try again!'
-    elsif (left == :scissors && right == :scissors)
-      @finished = false
-      'Tie game. Try again!'
-    else
-      :UNKNOWN
-    end
+    # elsif (left == :scissors && right == :paper)
+    #   'Scissors beats paper!'
+    # elsif (left == :paper && right == :scissors)
+    #   'Scissors beats paper!'
+
+    # elsif (left == :rock && right == :rock)
+    #   @finished = false
+    #   'Tie game. Try again!'
+    # elsif (left == :paper && right == :paper)
+    #   @finished = false
+    #   'Tie game. Try again!'
+    # elsif (left == :scissors && right == :scissors)
+    #   @finished = false
+    #   'Tie game. Try again!'
+    # else
+    #   :UNKNOWN
+    # end
   end
 
 end
