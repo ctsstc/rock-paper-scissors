@@ -17,10 +17,17 @@ class Game
       "Rock beats scissors!"
     elsif (left == :scissors && right == :rock)
       "Rock beats scissors!"
+
     elsif (left == :rock && right == :paper)
       'Paper beats rock!'
     elsif (left == :paper && right == :rock)
       'Paper beats rock!'
+
+    elsif (left == :scissors && right == :paper)
+      'Scissors beats paper!'
+    elsif (left == :paper && right == :scissors)
+      'Scissors beats paper!'
+
     elsif (left == :rock && right == :rock)
       'Tie game. Try again!'
     elsif (left == :paper && right == :paper)
