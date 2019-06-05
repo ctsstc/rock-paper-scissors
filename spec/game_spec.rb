@@ -60,14 +60,21 @@ describe 'A game of rock paper scissors' do
       it 'announces the correct winner' do
         game = Game.new
         game.start
-        expect(game.play(:rock, :scissors)).to eq("Rock beats scissors!")
-        expect(game.play(:scissors, :rock)).to eq("Rock beats scissors!")
+        expectation = 'Rock beats scissors!'
+        expect(game.play(:rock, :scissors)).to eq(expectation)
+        expect(game.play(:scissors, :rock)).to eq(expectation)
       end
       skip('is finished')
     end
 
     context 'rock vs paper' do
-      skip('returns "Paper beats rock!"')
+      it 'announces the correct winner' do
+        game = Game.new
+        game.start
+        expectation = 'Paper beats rock!'
+        expect(game.play(:paper, :rock)).to eq(expectation)
+        expect(game.play(:rock, :paper)).to eq(expectation)
+      end
       skip('is finished')
     end
 
