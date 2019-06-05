@@ -15,6 +15,11 @@ describe 'A game of rock paper scissors' do
     expect(game).to_not be_started
   end
 
+  it 'is not initially finished' do
+    game = Game.new
+    expect(game.finished).to_not eq(true)
+  end
+
   it 'a started game knows that it has started' do
     game = Game.new
     game.start
@@ -68,7 +73,7 @@ describe 'A game of rock paper scissors' do
         game = Game.new
         game.start
         game.play(:rock, :scissors)
-        expect(game.finished?).to eq(true)
+        expect(game.finished).to eq(true)
       end
     end
 
@@ -84,7 +89,7 @@ describe 'A game of rock paper scissors' do
         game = Game.new
         game.start
         game.play(:paper, :rock)
-        expect(game.finished?).to eq(true)
+        expect(game.finished).to eq(true)
       end
     end
 
@@ -100,7 +105,7 @@ describe 'A game of rock paper scissors' do
         game = Game.new
         game.start
         game.play(:scissors, :paper)
-        expect(game.finished?).to eq(true)
+        expect(game.finished).to eq(true)
       end
     end
 
@@ -118,7 +123,7 @@ describe 'A game of rock paper scissors' do
         game = Game.new
         game.start
         game.play(:rock, :rock)
-        expect(game.finished?).to eq(false)
+        expect(game.finished).to eq(false)
       end
     end
 
